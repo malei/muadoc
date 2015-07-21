@@ -1,0 +1,19 @@
+
+muaserver
+
+000) ./muaserver -port=9900 list 
+001) ./muaserver -port=9900 call WxLogin admin 12345
+002) FindCategoryMusicById
+	./muaserver -port=9900 call FindCategoryMusicById  
+	wS9LaUKwHcSveqUaBLmqEXJ8-xICfXgXAD05LewpMddIqKESRjk1l0N1r27lDKEdXBCEyKyQ3snHI7s9FVJBhA== 60
+003) 主key这个
+004) link between table
+005) idgen，这个唯一点标示,有的table之间share idgen; id产生
+006) SimpleIndex 增加索引 
+007) 跟着学习
+008) 不要着急，慢下来，心性的修炼ok
+009) NewSession 还是table，然后封装了一下，仅此而已
+010) NewCategorys,NewCatKeys 这个不需要idgen
+011) catemusics, singsongs, momusics 共享同一个idgen
+012) Relation, keys对唯一,本质还是table
+

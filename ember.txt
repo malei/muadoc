@@ -1,0 +1,34 @@
+2015-07-19
+ember
+
+001) muaserver必须要muaserver来操作
+	pbserver -port=9876 run
+	curl -i 0.0.0.0:9876/Get 
+
+002) 
+	func (p *Server) Get() (ret string, err error) {
+		ret = "hello lua";
+		return;
+	}
+	type Client struct {
+		Get func() (ret string, err error) `return:"ret"`;
+	}
+    server.rpc = rpc.NewServer()
+	err = server.rpc.Reg(&server, &Client{})
+	server.rpc.Run("/", server.Port)
+	type Server struct {
+		rpc *rpc.Server
+			Host string
+			Port int
+			Path string
+			MongoDBHost string
+			MongoDBPort int
+	}
+
+	curl -i 0.0.0.0:9876/Get
+	curl -i 0.0.0.0:9876/api/Get
+	curl -i 0.0.0.0:9876/api/sdf/Get
+	都可以
+
+003) 
+

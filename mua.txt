@@ -1,7 +1,193 @@
+Testing Method
+
 2015-07-08
 
 001) ember的查看
 002) mua的查看
 003）muadeploy搞定之
-004) 高并发2天
-005) 监控
+004) 高并发 2天
+005) 监控 2天
+006) ./deploy node m3 master
+007) ./deploy node m3 list
+008) ./deploy node m3 list
+009) muadeploy log 要秒为文件单位声称log
+010）log为什么在root下面
+011）muababa/log下面
+012) tag check for muadeploy
+013) muatest 的不对应关系，如何处理
+014) name仓库的name
+015）supervisor update 不需要 
+016）不同机器上的部署需要，追加lock
+017）supervisor配置改变更新
+018) 更新的逻辑
+
+2015-07-09
+
+001) ember的查看
+002) mua的查看
+003）muadeploy搞定之
+004) 高并发 2天
+005) 监控 2天
+009) muadeploy log 要秒为文件单位声称log	[ok]
+010）log为什么在root下面					[ok]
+011）muababa/log下面						[ok]
+012) tag check for muadeploy				[ok]
+013) muatest 的不对应关系，如何处理			
+014) name仓库的name [改动量，有点大]
+015）supervisor update 不需要 
+016）不同机器上的部署需要，追加lock
+017）supervisor配置改变更新
+018) 更新的逻辑
+019) service: 需要做 
+020) 解决readlink 的问题，在mac,ubuntu,centos上的差异 [ok]
+021) 有些变量需要整体的放入env.sh中
+022) 不要新的添加模块之，如果有旧的就使用旧的
+023) 加入.vimrc中的颜色多配置，以及bashrc的配置，慢慢做，回头再说
+
+2015-07-10
+001) master develop tag 之间的对应关系
+002) git的拉取，通过env.sh来做
+003) 他妈的设计到auth，好他妈的复杂
+	auth, env.sh, tag, develop, master
+004) root/muababa/muadeploy/deploy/ 必须这个位置，如何处理的问题
+005) master和develop之xilp之类的关系，比如
+006) 他妈的原来log个重定向了，难怪什么都看不到。
+
+2015-07-13
+001) image 替换
+html文件中的格式：
+<div class="image-bg" data-imgUrl="images/bg6.jpg"></div>
+<img src="images/banner_3.jpg" alt="" class="am-img-responsive">
+imgUrl: 'http://muabaobao.cn/images/logo.jpg'
+css文件中的格式：background: url(../images/collect_btn_old.png);
+js文件中的格式：
+<img src="images/playing2.png" alt="" class="music-playing music-play-icon" style="z-index:99999;">
+imgUrl: 'http://muabaobao.cn/images/logo.jpg'
+002) m0上点部署ok,调试为什么muaeditor失败. [ok, 启动的文件对应位置有问题的]
+003) 把pages放入库中 [ok]
+004) 如何tag从本地的库推倒远端的库 [ok]
+005) muaserver.conf supervisor更改要更新之
+006) m1的状态为自己的状态，m2为部署的状态，m3也为测试部署的状态
+007) 部署m2的状态之类的，比如测试
+008) M0上点针对多muaserver是哪一个？
+009) 编译问题
+010) muaserver 版本不匹配的问题
+011）pages.不匹配的问题
+012)[ok] nginx 的问题
+013)[ok] mua.tar.gz 数据库的问题
+错误手册
+014)[ok] 有的时候出现，有的时候不出现，为什么？
+a. css的本地缓存，第一次加载错误。［第一次加载的为错误的css,随后的就是304错误，然后不更新这个本次错误版本］
+b. 本地缓存了文件名,一直加载时本地保存的错误缓存的css文件。
+c. css加版本编号，然后重新加载
+d. 第一次错误加载的原因[client做了缓存]
+e. california dreaming
+f. css在m0和ref是一样的，js变化大, js做过版本编号
+g. js中请求的domain不会对ccs产生影响，也就是不会有304错误
+h. music.html 中修改地方        
+	<link rel="stylesheet" type="text/css" href="css/global.css?v=1">
+	<link rel="stylesheet" type="text/css" href="css/layout.css?v=1">
+	<link rel="stylesheet" type="text/css" href="css/music.css?v=1">
+	<link rel="stylesheet" type="text/css" href="css/musicList.css?v=1">
+	<link rel="stylesheet" type="text/css" href="css/backtotop.css?v=1">
+i. http://123.57.189.38/music.html
+[ok, 已经解决]
+
+问题:
+001)[ok] muaserver 的版本问题
+002)[ok] 其他服务的check
+
+总结
+001)[ok] api.js domain
+002)[ok] muaserver 版本 
+
+2015-07-14
+000)[ok] 今天要做的事情准备
+001)[ok] muaserver 的老版本必须找出来[]
+002) 写一个代码之，关于针对信息管理的方法，读取源文件,然后通过过滤之。
+信息的处理必须放在一个地方，不要重复。重复就比较讨厌了。信息的管理的方法。
+检索之类的，比如旧的消息的管理。关键是任务管理系统。轻量级别的信息管理系统，
+就是能非常方便大检索和提取之。提供规则就可以操作 
+003)[ok] app端对接服务器,基本需求搞定
+004)[ok] FindMomentMusics 这个M0，里面有这个借口
+005)[ok] 估计这个部署点时候压根就没有放入库中
+006)[ok] _obj.music.Title.split('##')主标题，副标题
+007)[ok] ref 之类的没有关系
+008) 测试M2其他服务之类的
+009) 测试M2的muaserver的服务，都需要过一遍
+	a. 打点系统的测试，百度使用域名
+	b. 域名
+	c. 测试账号的迁移
+010) supervisor injecter.conf + injecter.conf.tr
+011) frontend 出现错误
+012)[ok] 提供一种ftp frontend test
+013) 
+
+2015-07-15
+000)[ok] 今天要做的事情
+001)[ok] m2的测试继续
+002)[ok] HardWare硬件app开始筹划
+003) 测试M2其他服务之类的
+004) 测试M2的muaserver的服务，都需要过一遍
+	a. 打点系统的测试，百度使用域名
+	b. 域名
+	c. 测试账号的迁移
+005) supervisor injecter.conf + injecter.conf.tr
+006) frontend 出现错误
+007) 图片传到七牛
+008) statics data: http://123.57.189.38/admin/webOperation.html
+009) m2上的统计变量, syntaxis
+
+2015-07-16
+000) 今天要做的事情
+001) m2的测试继续
+002) ember的查看，不管是rpc还是measure，必须查看的清清楚楚
+
+
+2015-07-17
+001)[ok] muaserver 在本问题，返回值的大小写的问题
+002) 设计的破rpc垃圾的要死
+003)[ok] r.result的问题的更新
+004) FindCategoryMusicById 有这个函数，但是返回数据错误
+005) App 的模块来做
+006) ember和mua来搞定
+007) remote mongodb的设定之类的 
+008) muaserver的功能性检测
+009) 运营数据的正确性验证
+010) 监控方案的监测
+
+2015-07-19
+
+001) ember 调试完毕 
+002) 万能client
+003) 抽离muaserver和pbserver的公共，
+	然后在放在muaserver: mua/server/src/muabaobao.com
+004) 账号系统的设计，大设计大目标
+005) 爬虫，爬虫
+006) 数据库备份，check, ok?
+007）muaserver 重启和mongodb，check
+008) 五分之内完成
+009) 查看数据酷，数据一致性,两个收藏，数据一致性
+010) 监控的指过去
+011) 5:00
+012) 没有其他人拉进来
+014) online 连线信息系统 连线
+
+2015-07-20
+001) 民乐周
+http://u.eqxiu.com/s/BFY2YsYF?eqrcode=1&from=singlemessage&isappinstalled=0
+002) 全部音乐
+http://muabaobao.cn/music.html
+003) 全部音乐
+http://muabaobao.cn/song.html
+004) hostname m2 bashrc 初始化了显示法则
+005) 监控的需要重新做起来，和菜单之类的也需要做起来
+006) 监控
+007) 配置和配送之类
+008) 没有事务化的这个过程，全部中间状态 
+009) 
+
+2015-07-21
+001) muadeploy supervisorctl 默认执行 [这个需要追加]
+002) pbserver server go语言类之间的关系
+003) wxbridge 修复 
